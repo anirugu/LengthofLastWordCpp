@@ -9,24 +9,28 @@ int lengthOfLastWord(string);
 
 int main()
 {
-	std::cout << "Hello World!\n";
-	//lengthOfLastWord("Hello World");
-	lengthOfLastWord("a");
+	int result = lengthOfLastWord("Hello World");
+	cout << result << endl;
+	//lengthOfLastWord("a");
 }
 
 int lengthOfLastWord(string s) {
-	int index = 0;
-	for (int i = s.size() - 1; i >= 0; i--) {
+	int total = 0;
+	int i = s.size() - 1;
+	while (i >= 0) {
 		if (s[i] != ' ') {
-			index++;
+			total++;
+			i--;
 		}
 		else {
-			if (index > 0)
+			if (total > 0)
 				break;
+			i--;
 			continue;
 		}
+
 	}
-	return index;
+	return total;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
