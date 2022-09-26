@@ -10,20 +10,23 @@ int lengthOfLastWord(string);
 int main()
 {
 	std::cout << "Hello World!\n";
+	//lengthOfLastWord("Hello World");
+	lengthOfLastWord("a");
 }
 
 int lengthOfLastWord(string s) {
-	bool foundText = false;
 	int index = 0;
-	for (int i = 0; i < s.size(); i--) {
+	for (int i = s.size() - 1; i >= 0; i--) {
 		if (s[i] != ' ') {
-			foundText = true;
+			index++;
 		}
-			
-		else
+		else {
+			if (index > 0)
+				break;
 			continue;
+		}
 	}
-	return 0;
+	return index;
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
